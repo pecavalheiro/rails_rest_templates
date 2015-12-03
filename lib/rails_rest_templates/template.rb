@@ -30,6 +30,8 @@ require_dependency "<%= namespaced_file_path %>/application_controller"
 <% module_namespacing do -%>
 class <%= controller_class_name %>Controller < ApplicationController
   
+  include RestApiConcerns
+
   before_action :set_<%= singular_table_name %>, only: [:show, :update, :destroy]
   
   # GET <%= route_url %>
