@@ -5,7 +5,20 @@ module RestApiConcerns extend ActiveSupport::Concern
 	  	skip_before_action :verify_authenticity_token
 	  	before_filter :set_format, :cors_preflight_check
 	  	after_filter :cors_set_access_control_headers
+
+	  	rescue_from ActiveRecord::RecordNotFound, :with => :handle_not_found
+
+	  	rescue_from Exception, :with => :handle_exception
+
 	end
+
+    def handle_not_found(exception)
+      render json: {error: "ID not found"}.to_json, status: :not_found
+    end
+
+    def handle_exception(exception)
+      render json: {error: exception.message}.to_json, status: :internal_server_error
+    end
 
 	def set_format
 		request.format = 'json'
