@@ -7,6 +7,8 @@ gem "rspec"
  
 run "bundle install"
 
+run "rails generate rspec:install"
+
 #environment 'config.action_mailer.default_url_options = {host: "http://yourwebsite.example.com"}', env: 'production'
 
 environment "config.generators do |g|
