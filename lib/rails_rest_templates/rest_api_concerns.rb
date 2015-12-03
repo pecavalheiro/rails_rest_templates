@@ -6,8 +6,6 @@ module RestApiConcerns extend ActiveSupport::Concern
 	  	before_filter :set_format, :cors_preflight_check
 	  	after_filter :cors_set_access_control_headers
 
-	  	rescue_from ActiveRecord::RecordNotFound, :with => :handle_not_found
-
 	  	rescue_from Exception, :with => :handle_exception
 
 	end
@@ -17,7 +15,11 @@ module RestApiConcerns extend ActiveSupport::Concern
     end
 
     def handle_exception(exception)
-      render json: {error: exception.message}.to_json, status: :internal_server_error
+      if (exception.is_a?(ActiveRecord::RecordNotFound))
+      	handle_not_found(exception) 
+      else
+      	render json: {error: exception.message}.to_json, status: :internal_server_error
+      end
     end
 
 	def set_format
