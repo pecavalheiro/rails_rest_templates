@@ -47,7 +47,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   # POST <%= route_url %>
   def create
     <%= singular_table_name %> = <%= orm_class.build(class_name, singular_table_name+"_params") %>
-    if @<%= orm_instance.save %>
+    if <%= orm_instance.save %>
       render json: <%= singular_table_name %>, status: :created 
     else
       render json: <%= singular_table_name %>.errors, status: :unprocessable_entity
@@ -57,9 +57,9 @@ class <%= controller_class_name %>Controller < ApplicationController
   # PATCH/PUT <%= route_url %>/1
   def update
     if @<%= orm_instance.update(singular_table_name+"_params") %>
-      render json: @<%= singular_table_name %>, status: ok
+      render json: @<%= singular_table_name %>, status: :ok
     else
-      render json: @<%= singular_table_name %>.errors, status: unprocessable_entity
+      render json: @<%= singular_table_name %>.errors, status: :unprocessable_entity
     end
   end
 
