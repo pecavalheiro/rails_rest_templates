@@ -40,8 +40,8 @@ class <%= controller_class_name %>Controller < ApplicationController
   def index
     limit = params[:limit]||10
     offset = params[:offset]||0
-    items = <%= plural_table_name %> = <%= class_name %>.limit(limit).offset(offset) 
-    render json: items, status: :ok
+    <%= plural_table_name %> = <%= class_name %>.limit(limit).offset(offset) 
+    render json: <%= plural_table_name %>, status: :ok
   end
   
   # POST <%= route_url %>
