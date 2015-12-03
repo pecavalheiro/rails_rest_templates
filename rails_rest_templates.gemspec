@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = RailsRestTemplates::VERSION
   s.authors     = ["Ricardo Baumann"]
   s.email       = ["ricardo.luis.baumann@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of RailsRestTemplates."
-  s.description = "TODO: Description of RailsRestTemplates."
+  s.homepage    = "http://github.com/ricardobaumann"
+  s.summary     = "Templates for rest api-only applications"
+  s.description = "See REDANE"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
