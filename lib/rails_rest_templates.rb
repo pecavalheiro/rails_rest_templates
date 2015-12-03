@@ -1,0 +1,2 @@
+module RailsRestTemplates
+end
