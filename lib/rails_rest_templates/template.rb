@@ -3,7 +3,7 @@ app_title = app_name.classify
 
 gem "rails_rest_templates", git: "http://github.com/ricardobaumann/rails_rest_templates"
 gem "therubyracer"
-gem "rspec"
+gem 'rspec-rails'
  
 run "bundle install"
 
