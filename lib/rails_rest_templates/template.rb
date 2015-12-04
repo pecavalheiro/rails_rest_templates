@@ -54,6 +54,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     end
   end
 
+  # PATCH/PUT <%= route_url %>/1
   def show
   end
 
