@@ -56,6 +56,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   # PATCH/PUT <%= route_url %>/1
   def show
+  	render json: @<%= singular_table_name %>, status: :ok
   end
 
   # PATCH/PUT <%= route_url %>/1
