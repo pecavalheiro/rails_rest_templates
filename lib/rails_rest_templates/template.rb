@@ -2,6 +2,7 @@ app_name = "application"
 app_title = app_name.classify
 
 gem "rails_rest_templates", git: "http://github.com/ricardobaumann/rails_rest_templates"
+gem "rspec_scaffold_gen", git: "https://github.com/ricardobaumann/rspec_scaffold_gen"
 gem "therubyracer"
 gem 'rspec-rails'
  
@@ -56,7 +57,6 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   # PATCH/PUT <%= route_url %>/1
   def show
-  	render json: @<%= singular_table_name %>, status: :ok
   end
 
   # PATCH/PUT <%= route_url %>/1
